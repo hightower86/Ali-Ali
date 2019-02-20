@@ -116,6 +116,15 @@ window.addEventListener('DOMContentLoaded', () => {
         function calcGoods() {
             const items = cartWrapper.querySelectorAll('.goods__item');
             badge.textContent = items.length;
+            if (items.length == 0) {
+                let empty = cartWrapper.querySelector('.empty');
+                if (!empty) {
+                    empty = document.createElement('div');
+                    empty.textContent = 'Ваша корзина пока пуста';
+                    empty.classList.add('empty');
+                    cartWrapper.appendChild(empty);
+                }
+            }
         }
 
         function calcTotal() {
